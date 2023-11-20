@@ -3,7 +3,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import shirt1 from "../assets/shirt-1.jpg";
 import { faXmark } from "@fortawesome/free-solid-svg-icons/faXmark";
 
-const CartItem = (props: Props) => {
+const CartItem = () => {
   return (
     <>
       <form className="mx-auto grid h-36 w-full grid-cols-5 items-center border-b border-stone-800">

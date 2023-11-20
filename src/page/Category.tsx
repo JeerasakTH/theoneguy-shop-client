@@ -1,14 +1,10 @@
-import React from "react";
 import { Outlet } from "react-router-dom";
 
-type Props = {};
-
-const Category = (props: Props) => {
+const Category = () => {
   return (
-    <div>
-      Category
+    <>
       <Outlet />
-    </div>
+    </>
   );
 };
 

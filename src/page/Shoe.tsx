@@ -1,11 +1,5 @@
-import React from 'react'
+const Shoe = () => {
+  return <div>Shoe</div>;
+};
 
-type Props = {}
-
-const Shoe = (props: Props) => {
-  return (
-    <div>Shoe</div>
-  )
-}
-
-export default Shoe
+export default Shoe;

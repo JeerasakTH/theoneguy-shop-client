@@ -1,9 +1,5 @@
-import React from "react";
-
-type Props = {};
-
-const Login = (props: Props) => {
-  return <div className="bg-ivory h-screen w-full">Login</div>;
+const Login = () => {
+  return <div className="h-screen w-full bg-ivory">Login</div>;
 };
 
 export default Login;

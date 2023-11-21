@@ -2,14 +2,14 @@ import { Link } from "react-router-dom";
 
 const Navbar = () => {
   return (
-    <div className="grid h-14 grid-cols-[1fr,2fr,1fr] justify-between border-b border-plum bg-coral py-2 text-stone-200 sm:px-8">
-      <a
-        href="/"
-        className="flex w-fit items-center justify-center rounded-full bg-orange-200 px-2 py-1 text-sm font-medium text-stone-800 md:text-base"
+    <div className="grid h-14 grid-cols-[1fr,2fr,1fr] justify-between border-b border-plum bg-coral py-2 text-sm text-stone-200 sm:px-8">
+      <Link
+        to="/"
+        className="flex w-fit items-center justify-center rounded-full bg-orange-200 px-2 py-1 font-medium text-stone-800 md:text-base"
       >
         T.O.G Store
-      </a>
-      <div className="w-full rounded-md bg-orange-800 px-4 py-2 text-sm md:text-base">
+      </Link>
+      <div className="w-full rounded-md bg-orange-800 px-4 py-2 md:text-base">
         <ul className="flex items-center justify-between">
           <li>
             <Link to="/">Home</Link>
@@ -39,7 +39,7 @@ const Navbar = () => {
       <div className="flex flex-row items-center justify-end gap-8 text-sm md:text-base">
         <div className="group relative w-24 rounded-t-md">
           <Link
-            to="profile"
+            to="login"
             className="flex items-center justify-center rounded-t-md bg-stone-300 px-4 py-1 text-stone-800"
           >
             John

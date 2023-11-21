@@ -1,5 +1,4 @@
 import { faCartShopping } from "@fortawesome/free-solid-svg-icons/faCartShopping";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import CartItem from "../components/CartItem";
 import { useAppSelector } from "../store/store";
 import Head from "../components/Head";

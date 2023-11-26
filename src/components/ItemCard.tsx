@@ -18,14 +18,14 @@ const ItemCard = ({ item }: Props) => {
     <div className="flex justify-center">
       <div className="grid h-auto w-60 grid-rows-3 overflow-hidden rounded-lg bg-orange-200 shadow-md">
         <img
-          src={item.picture}
-          alt={item.picture}
+          src={item.image}
+          alt={item.name}
           className="row-span-2 h-full w-full"
         />
-        <div className="row-span-1 flex flex-col gap-2 px-4 py-3">
-          <div className="flex w-full flex-row justify-between">
+        <div className="grid-col row-span-1 grid gap-2 px-4 py-3">
+          <div className="flex w-full flex-row justify-between gap-6">
             <p className="border-b border-orange-700">{item.name}</p>
-            <p className="rounded-lg bg-orange-100 px-2 py-1 shadow-md">
+            <p className="h-fit rounded-lg bg-orange-100 px-2 py-1 shadow-md">
               {item.type}
             </p>
           </div>

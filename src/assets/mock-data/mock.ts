@@ -15,10 +15,10 @@ interface Item {
 export const item: Item[] = [
   {
     id: 1,
-    name: "shirt-1",
+    name: "shirt-1 abc ded",
     type: "shirt",
     price: 123,
-    picture: shirt1,
+    picture: "https://img2.pic.in.th/pic/shirt-1.jpeg",
   },
   {
     id: 2,

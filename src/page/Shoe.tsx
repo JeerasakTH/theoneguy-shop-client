@@ -1,5 +1,17 @@
-const Shoe = () => {
-  return <div>Shoe</div>;
+import ItemCard from "../components/ItemCard";
+import { useAppSelector } from "../store/store";
+
+const All = () => {
+  const items = useAppSelector(({ item }) => item.item);
+  const shoes = items.filter((item) => item.type === "shoe");
+
+  return (
+    <div className="grid w-full grid-cols-1 justify-around gap-14 px-6 py-6 md:grid-cols-2 lg:grid-cols-3">
+      {shoes.map((item) => (
+        <ItemCard item={item} key={item._id} />
+      ))}
+    </div>
+  );
 };
 
-export default Shoe;
+export default All;

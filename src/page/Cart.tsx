@@ -13,7 +13,7 @@ const Cart = () => {
       <div className="grid-row-5 mx-auto grid h-full w-3/4 overflow-hidden rounded-md shadow-lg">
         <div className="row-span-4 overflow-auto">
           {cart.map((item) => (
-            <CartItem item={item} key={item.id} />
+            <CartItem item={item} key={item._id} />
           ))}
         </div>
         <div className="row-span-1 ml-auto flex flex-row items-center px-2 text-sm md:gap-3 md:px-4 md:py-3 md:text-base">

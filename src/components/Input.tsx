@@ -1,10 +1,18 @@
 type Props = {
+  userInput: (e: React.ChangeEvent<HTMLInputElement>) => void;
   children: string;
   placeholderProp?: string;
   disabledProp?: boolean;
+  type?: string;
 };
 
-const Input = ({ children, placeholderProp, disabledProp }: Props) => {
+const Input = ({
+  userInput,
+  children,
+  placeholderProp,
+  disabledProp,
+  type,
+}: Props) => {
   return (
     <div className="relative mx-auto w-3/4 rounded-md border border-stone-800 md:w-72 ">
       <label
@@ -17,6 +25,8 @@ const Input = ({ children, placeholderProp, disabledProp }: Props) => {
         className="w-full rounded-md bg-stone-50 px-4 py-3"
         placeholder={placeholderProp}
         disabled={disabledProp}
+        type={type}
+        onChange={userInput}
       />
     </div>
   );

@@ -16,7 +16,7 @@ const Navbar = () => {
           </li>
           <li className="group relative px-6">
             <Link to="/category/all">Category</Link>
-            <ul className="duration-2000 absolute left-0 z-50 w-full rounded-md bg-orange-800 py-2 pl-6 opacity-0 transition-all group-hover:opacity-100">
+            <ul className="duration-2000 absolute left-0 -z-10 w-full rounded-md bg-orange-800 py-2 pl-6 opacity-0 transition-all group-hover:z-50 group-hover:opacity-100">
               <li>
                 <Link to="category/all">All</Link>
               </li>
@@ -44,7 +44,7 @@ const Navbar = () => {
           >
             John
           </Link>
-          <ul className="absolute z-50 w-full rounded-b-md bg-stone-300 py-2 pl-3 opacity-0 transition-all group-hover:opacity-100">
+          <ul className="absolute -z-10 w-full rounded-b-md bg-stone-300 py-2 pl-3 opacity-0 transition-all group-hover:z-50 group-hover:opacity-100">
             <li>
               <Link to="profile" className="text-stone-800">
                 profile

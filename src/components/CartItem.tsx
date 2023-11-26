@@ -12,8 +12,8 @@ const CartItem = ({ item }: Props) => {
     <>
       <div className="mx-auto grid h-36 w-full grid-cols-5 items-center border-b border-stone-800">
         <img
-          src={item.picture}
-          alt={item.picture}
+          src={item.image}
+          alt={item.image}
           className="col-span-1 h-full w-full"
         />
         <p className="col-span-2 ml-auto">{item.name}</p>

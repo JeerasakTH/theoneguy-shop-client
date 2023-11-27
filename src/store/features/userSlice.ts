@@ -43,6 +43,7 @@ export const fetchUser = createAsyncThunk("user/fetchUser", async function () {
     credentials: "include",
   });
   const data = await response.json();
+  console.log(data);
   return data;
 });
 
@@ -67,7 +68,7 @@ export const loginUser = createAsyncThunk(
       }),
     });
     const data = await response.json();
-    console.log(data);
+    // console.log(data);
     return data;
   },
 );

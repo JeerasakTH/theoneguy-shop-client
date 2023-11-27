@@ -4,6 +4,7 @@ import { fetchItem } from "../store/features/itemSlice";
 import { useAppDispatch } from "../store/store";
 
 import Navbar from "../components/Navbar";
+import { fetchUser } from "../store/features/userSlice";
 
 const AppLayout = () => {
   const dispatch = useAppDispatch();
@@ -12,6 +13,7 @@ const AppLayout = () => {
     const fetchData = () => {
       try {
         dispatch(fetchItem());
+        dispatch(fetchUser());
       } catch (error) {
         console.log("Error fetching data:", error);
       }

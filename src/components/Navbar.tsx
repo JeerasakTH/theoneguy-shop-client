@@ -1,6 +1,16 @@
+import { useEffect } from "react";
 import { Link } from "react-router-dom";
+import UserBox from "./UserBox";
+import { useAppSelector } from "../store/store";
+import LoginBox from "./LoginBox";
 
 const Navbar = () => {
+  const user = useAppSelector((state) => state.user.user);
+
+  // useEffect(() => {
+  //   user;
+  // }, [user]);
+
   return (
     <div className="grid h-14 grid-cols-[1fr,2fr,1fr] justify-between border-b border-plum bg-coral py-2 text-sm text-stone-200 sm:px-8">
       <Link
@@ -37,7 +47,8 @@ const Navbar = () => {
         </ul>
       </div>
       <div className="flex flex-row items-center justify-end gap-8 text-sm md:text-base">
-        <div className="group relative w-24 rounded-t-md">
+        {user ? <UserBox /> : <LoginBox />}
+        {/* <div className="group relative w-24 rounded-t-md">
           <Link
             to="login"
             className="flex items-center justify-center rounded-t-md bg-stone-300 px-4 py-1 text-stone-800"
@@ -59,7 +70,7 @@ const Navbar = () => {
               <a href="">logout</a>
             </li>
           </ul>
-        </div>
+        </div> */}
       </div>
     </div>
   );

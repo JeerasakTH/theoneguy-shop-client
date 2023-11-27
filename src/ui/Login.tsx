@@ -1,5 +1,5 @@
 import { faRightToBracket } from "@fortawesome/free-solid-svg-icons";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import Head from "../components/Head";
 import Button from "../components/Button";
 import { useAppDispatch, useAppSelector } from "../store/store";
@@ -8,24 +8,26 @@ import { useRef } from "react";
 import Input from "../components/Input";
 
 const Login = () => {
+  const navigate = useNavigate();
   const dispatch = useAppDispatch();
   const user = useAppSelector((state) => state.user.userInput);
 
   const username = useRef<string>("");
   const password = useRef<string>("");
 
-  console.log(user);
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     dispatch(
       loginUser({ username: username.current, password: password.current }),
     );
+
+    if (user) navigate("/");
   };
 
   return (
     <form
       className="mx-auto flex h-[32rem] w-3/4 flex-col gap-10 overflow-auto rounded-md bg-stone-50 py-16 shadow-lg"
-      onClick={handleSubmit}
+      onSubmit={handleSubmit}
     >
       <Head iconProp={faRightToBracket}>Login</Head>
       <div className="mx-auto flex w-3/4 flex-col gap-6">
@@ -45,7 +47,9 @@ const Login = () => {
           PASSWORD
         </Input>
       </div>
-      <Button color="bg-green-500">Login</Button>
+      <Button type="submit" color="bg-green-500">
+        Login
+      </Button>
       <Link
         to="/signup"
         className="mx-auto border-indigo-600 text-center text-sm text-indigo-600 hover:border-b"

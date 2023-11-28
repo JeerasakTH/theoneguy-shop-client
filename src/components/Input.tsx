@@ -1,5 +1,5 @@
 type Props = {
-  userInput: (e: React.ChangeEvent<HTMLInputElement>) => void;
+  userInput?: (e: React.ChangeEvent<HTMLInputElement>) => void;
   children: string;
   placeholderProp?: string;
   disabledProp?: boolean;

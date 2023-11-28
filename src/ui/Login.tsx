@@ -2,7 +2,7 @@ import { faRightToBracket } from "@fortawesome/free-solid-svg-icons";
 import { Link, useNavigate } from "react-router-dom";
 import Head from "../components/Head";
 import Button from "../components/Button";
-import { useAppDispatch, useAppSelector } from "../store/store";
+import { useAppDispatch } from "../store/store";
 import { loginUser } from "../store/features/userSlice";
 import { useRef } from "react";
 import Input from "../components/Input";
@@ -10,18 +10,17 @@ import Input from "../components/Input";
 const Login = () => {
   const navigate = useNavigate();
   const dispatch = useAppDispatch();
-  const user = useAppSelector((state) => state.user.userInput);
 
   const username = useRef<string>("");
   const password = useRef<string>("");
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    dispatch(
+    const result = await dispatch(
       loginUser({ username: username.current, password: password.current }),
     );
 
-    if (user) navigate("/");
+    if (result.payload.status === "success") navigate("/");
   };
 
   return (

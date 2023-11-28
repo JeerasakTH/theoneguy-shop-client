@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 
 const Home = () => {
   const dispatch = useAppDispatch();
-  const user = useAppSelector((state) => state.user.user);
+  const user = useAppSelector((state) => state.user.user?.username);
   const [link, setLink] = useState<string>("login");
 
   useEffect(() => {

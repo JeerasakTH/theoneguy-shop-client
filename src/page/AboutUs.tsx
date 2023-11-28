@@ -30,7 +30,7 @@ const AboutUs = () => {
       </p>
       <ul className="flex flex-col gap-2">
         <li>Netlify (Client)</li>
-        <li>vercel (Server)</li>
+        <li>AWS (Server)</li>
       </ul>
     </div>
   );

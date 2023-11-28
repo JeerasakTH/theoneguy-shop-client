@@ -1,8 +1,11 @@
-import { Link } from "react-router-dom";
-import { useAppSelector } from "../store/store";
+import { Link, useNavigate } from "react-router-dom";
+import { useAppDispatch, useAppSelector } from "../store/store";
+import { logoutUser } from "../store/features/userSlice";
 
 const UserBox = () => {
-  const user = useAppSelector((state) => state.user.user.username);
+  const navigate = useNavigate();
+  const dispatch = useAppDispatch();
+  const user = useAppSelector((state) => state.user.user?.username);
 
   return (
     <div className="group relative w-24 rounded-t-md">
@@ -23,7 +26,13 @@ const UserBox = () => {
             cart
           </Link>
         </li>
-        <li className="text-stone-800">
+        <li
+          className="text-stone-800"
+          onClick={() => {
+            dispatch(logoutUser());
+            navigate("/");
+          }}
+        >
           <a href="">logout</a>
         </li>
       </ul>

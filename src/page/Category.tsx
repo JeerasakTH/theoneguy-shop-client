@@ -4,7 +4,7 @@ import { useAppSelector } from "../store/store";
 
 const Category = () => {
   const navigate = useNavigate();
-  const user = useAppSelector((state) => state.user.user);
+  const user = useAppSelector((state) => state.user.user?.username);
 
   useEffect(() => {
     if (!user) {

@@ -1,4 +1,4 @@
-import { createSlice, createAsyncThunk, PayloadAction } from "@reduxjs/toolkit";
+import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 
 export interface User {
   _id: string;
@@ -7,14 +7,8 @@ export interface User {
   address: string;
 }
 
-interface UserInput {
-  username: string;
-  password: string;
-}
-
 interface UserState {
   user: User;
-  userInput: UserInput;
   status: string;
   error: string;
 }
@@ -25,10 +19,6 @@ const initialState: UserState = {
     username: "",
     password: "",
     address: "",
-  },
-  userInput: {
-    username: "",
-    password: "",
   },
   status: "",
   error: "",
@@ -43,9 +33,25 @@ export const fetchUser = createAsyncThunk("user/fetchUser", async function () {
     credentials: "include",
   });
   const data = await response.json();
-  console.log(data);
+  // console.log(data);
   return data;
 });
+
+export const logoutUser = createAsyncThunk(
+  "user/logoutUser",
+  async function () {
+    const response = await fetch("http://localhost:8080/api/users/logout", {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      credentials: "include",
+    });
+    const data = await response.json();
+    // console.log(data);
+    return data;
+  },
+);
 
 export const loginUser = createAsyncThunk(
   "user/loginUser",
@@ -76,11 +82,7 @@ export const loginUser = createAsyncThunk(
 export const UserSlice = createSlice({
   name: "user",
   initialState,
-  reducers: {
-    addUserInput: (state, action: PayloadAction<UserInput>) => {
-      state.userInput = action.payload;
-    },
-  },
+  reducers: {},
   extraReducers: (builder) => {
     builder
       .addCase(fetchUser.pending, (state) => {
@@ -103,11 +105,20 @@ export const UserSlice = createSlice({
       })
       .addCase(loginUser.rejected, (state) => {
         state.status = "error";
-        state.error = "There was a problem getting your User";
+        state.error = "There was a problem login";
+      })
+      .addCase(logoutUser.pending, (state) => {
+        state.status = "loading";
+      })
+      .addCase(logoutUser.fulfilled, (state) => {
+        state.status = "idle";
+        state.user.username = "";
+      })
+      .addCase(logoutUser.rejected, (state) => {
+        state.status = "error";
+        state.error = "There was a problem logout";
       });
   },
 });
-
-export const { addUserInput } = UserSlice.actions;
 
 export default UserSlice.reducer;

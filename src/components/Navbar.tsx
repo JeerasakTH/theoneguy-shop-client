@@ -5,11 +5,11 @@ import { useAppSelector } from "../store/store";
 import LoginBox from "./LoginBox";
 
 const Navbar = () => {
-  const user = useAppSelector((state) => state.user.user);
+  const user = useAppSelector((state) => state.user.user?.username);
 
-  // useEffect(() => {
-  //   user;
-  // }, [user]);
+  useEffect(() => {
+    user;
+  }, [user]);
 
   return (
     <div className="grid h-14 grid-cols-[1fr,2fr,1fr] justify-between border-b border-plum bg-coral py-2 text-sm text-stone-200 sm:px-8">

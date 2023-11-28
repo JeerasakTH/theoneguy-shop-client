@@ -21,7 +21,7 @@ const initialState: ItemState = {
 };
 
 export const fetchItem = createAsyncThunk("item/fetchItem", async function () {
-  const response = await fetch("http://localhost:8080/api/items", {
+  const response = await fetch("http://54.179.0.101:8080/api/items", {
     method: "GET",
     headers: {
       "Content-Type": "application/json",

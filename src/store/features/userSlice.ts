@@ -25,7 +25,7 @@ const initialState: UserState = {
 };
 
 export const fetchUser = createAsyncThunk("user/fetchUser", async function () {
-  const response = await fetch("http://localhost:8080/api/users", {
+  const response = await fetch("http://54.179.0.101:8080/api/users", {
     method: "GET",
     headers: {
       "Content-Type": "application/json",
@@ -40,7 +40,7 @@ export const fetchUser = createAsyncThunk("user/fetchUser", async function () {
 export const logoutUser = createAsyncThunk(
   "user/logoutUser",
   async function () {
-    const response = await fetch("http://localhost:8080/api/users/logout", {
+    const response = await fetch("http://54.179.0.101:8080/api/users/logout", {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
@@ -62,7 +62,7 @@ export const loginUser = createAsyncThunk(
     username: string;
     password: string;
   }) {
-    const response = await fetch("http://localhost:8080/api/users/login", {
+    const response = await fetch("http://54.179.0.101:8080/api/users/login", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
